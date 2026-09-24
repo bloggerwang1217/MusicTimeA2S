@@ -1,0 +1,12 @@
+[submodule "external/MV2H"]
+	path = external/MV2H
+	url = https://github.com/bloggerwang1217/MV2H.git
+	branch = master
+[submodule "external/virtuosoNet"]
+	path = external/virtuosoNet
+	url = https://github.com/bloggerwang1217/virtuosoNet.git
+	branch = compat-fixes
+[submodule "external/efficient-musicdiff"]
+	path = external/efficient-musicdiff
+	url = https://github.com/guang-yng/efficient-musicdiff.git
+	branch = feat/efficiency

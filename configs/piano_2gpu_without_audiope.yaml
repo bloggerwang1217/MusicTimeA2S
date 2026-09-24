@@ -1,0 +1,104 @@
+# Piano audio-to-score, without Audio Fourier PE — two-GPU training
+# =====================================
+#
+# batch_size is per rank: 4 × 2 GPUs preserves the single-GPU effective batch
+# of 8.
+#
+# Duration-PE-only arm: the downbeat-phase head is trained per frame (blurred circular CE)
+# and its posterior supplies twelve metrical Fourier harmonics to the score
+# path through the decoder cross-attention Fourier PE (token only).
+# The audio-side Fourier PE on the cross-attention key and value is withheld, so the
+# decoder reads only the score-side (duration) metrical position.  The phase
+# branch's LR anneals from step 10k to 20k.
+
+seed:
+  training: 42
+
+# =============================================================================
+# Model
+# =============================================================================
+model:
+  name: "piano-a2s-without-audiope"
+
+  hft_state_dict: "checkpoints/hft/hft_maestro_v3_statedict.pt"
+  hft_parameter_json: "checkpoints/hft/parameter.json"
+
+  n_queries: 32
+  d_model: 256
+  n_heads: 4
+
+  phase_model: true
+
+  n_global_layers: 2
+  conformer_kernel: 65
+
+  ftheta_layers: 6
+  ftheta_d_state: 128
+  ftheta_d_conv: 4
+  ftheta_dilations: [1, 1, 2, 4, 8, 16, 32]
+  ftheta_dilated_dropout: 0.1
+  downbeat_phase_classes: 360
+
+  # The phase posterior is not added to the memory; its Fourier PE is
+  # delivered at the decoder cross-attention (score side from the decode
+  # grammar, audio side from the phase posterior) as the token term only;
+  # the audio-side key and value terms are absent.
+  coordinate_delivery: cross_attention
+  fourierpe_terms: "token"
+
+  ff_dim: 1024
+  n_layers: 4
+  dropout: 0.1
+  max_seq_len: 2048
+  label_smoothing: 0.0
+
+# =============================================================================
+# Data
+# =============================================================================
+data:
+  chunking:
+    chunk_frames: 1280
+    overlap_frames: 640
+  prefix:
+    enabled: true
+    # Run-in of one bar for the phase branch, capped at three hFT windows
+    # (6.1 s): the batch pays for its largest run-in rounded up to whole
+    # windows, so the cap bounds that cost.
+    max_frames: 384
+    # Decoder memory opens at most half a bar before the chunk (uniform draw),
+    # so the first downbeat in the memory is the token stream's first bar.
+
+# =============================================================================
+# Joint teaching objective
+# =============================================================================
+loss:
+  lambda_score: 1.0
+  # Per-frame blurred circular CE on the phase head.
+  lambda_downbeat_phase: 0.1
+
+# =============================================================================
+# Training
+# =============================================================================
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 1
+  gradient_clip: 2.0
+
+  learning_rate: 1.0e-4
+  weight_decay: 0.01
+  max_epochs: 50
+  warmup_steps: 1000
+  lr_min_ratio: 0.1
+  phase_lr_decay_start_step: 10000
+  phase_lr_decay_end_step: 20000
+  phase_lr_min: 1.0e-5
+
+  save_every_n_epochs: 5
+  early_stopping_patience: 5
+
+# =============================================================================
+# Paths
+# =============================================================================
+paths:
+  manifest_dir: "data/experiments/syn"
+  checkpoint_dir: "checkpoints/piano_2gpu_without_audiope"

@@ -1,0 +1,58 @@
+name
+No_Time_For_Caution_Solo_Piano
+Martin_Garrix_-_In_The_Name_Of_Love_Piano
+A_Town_With_An_Ocean_View_Piano
+Gourmet_Race-Kirby_Super_Star_UltraSolo_Piano_Arrangement.mscz
+Dangerously_-_Charlie_Puth_Piano_Cover_-_Xave_Senduk
+You_Say_Run
+With_or_Without_You_Piano_Solo
+Malibu_Miley_Cyrus_Piano_Cover_Sheet_Music
+EXO_egso_Universe_for_Piano
+The_Glorious_State_Anthem_of_the_Soviet_Union
+Hogwarts_March_Piano_Arrangement
+One_Republic-Secrets_Piano_Part
+Luma__Rosalinas_Story_Book__from_Super_Mario_Galaxy_Piano_solo
+Someone_You_Loved
+SAD_-_XXXTENTACION_Piano
+Guiles_Theme_for_Piano
+Undertale_OST_-_Megalovania__Piano_Remix
+Dont_Stop_Believing_Piano
+Wii_Shop_Theme_Piano_Solo_UPDATED.mscz
+! Six Beethoven movements were dropped from this split, not merely skipped:
+! sonata03-1, sonata03-2, sonata08-3, sonata18-1, sonata18-4, sonata21-1.
+! The same works are scored in the ASAP test sets, so they are barred
+! from every split; they are listed in protocol_exclude.txt with the reason.
+! Kept here as a comment so this file never advertises a piece the pipeline
+! refuses to build.
+! Eleven more entries were later dropped the same way: beethoven sonata17-2,
+! sonata21-2, sonata21-3, sonata22-1, sonata26-2, sonata27-1, sonata28-1,
+! sonata31-1; chopin 010_1-6-1b-KI-002; mozart sonata12-1, sonata12-3.
+! Their music is either scored in the ASAP test protocols or already
+! enters training as ASAP recordings; all are in protocol_exclude.txt.
+beethoven#sonata01-3
+beethoven#sonata06-3
+beethoven#sonata12-2
+beethoven#sonata15-3
+beethoven#sonata15-4
+beethoven#sonata20-2
+chopin#005-1c-HO
+chopin#025_7-12-1a-BH-009
+chopin#VGNA-1-HAc
+haydn#sonata12-3
+haydn#sonata42-3
+joplin#binks
+joplin#felicity
+joplin#sunflower
+mozart#sonata04-3
+mozart#sonata06-1
+mozart#sonata07-3
+mozart#sonata09-3
+mozart#sonata11-1a
+mozart#sonata11-1d
+mozart#sonata11-1e
+mozart#sonata13-1
+scarlatti#L002K384
+scarlatti#L101K156
+scarlatti#L346K408
+scarlatti#L351K225
+scarlatti#L400K360

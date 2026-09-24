@@ -1,0 +1,45 @@
+# Base qpm for scores that carry no tempo indication of any kind
+# (Bach WTC engravings follow the urtext, which by Baroque convention
+# leaves tempo to the performer; the Kreisleriana engraving dropped its
+# marking).  Values are the median quarter-note rate of the piece's own
+# ASAP human performances, derived from performance_downbeats -- not
+# editorial tempo choices.  Consumed by the VirtuosoNet render path;
+# random tempo scaling is applied on top per rendered version.
+piece_id,base_qpm,n_performances
+Bach#Fugue#bwv_846,48,1
+Bach#Fugue#bwv_856,100,1
+Bach#Fugue#bwv_864,104,1
+Bach#Fugue#bwv_865,88,3
+Bach#Fugue#bwv_867,126,2
+Bach#Fugue#bwv_870,118,3
+Bach#Fugue#bwv_874,72,3
+Bach#Fugue#bwv_876,176,2
+Bach#Fugue#bwv_880,90,3
+Bach#Fugue#bwv_884,106,1
+Bach#Fugue#bwv_887,74,1
+Bach#Fugue#bwv_888,110,1
+Bach#Fugue#bwv_892,106,2
+Bach#Fugue#bwv_893,104,3
+Bach#Prelude#bwv_846,62,1
+Bach#Prelude#bwv_856,118,1
+Bach#Prelude#bwv_864,94,1
+Bach#Prelude#bwv_865,134,3
+Bach#Prelude#bwv_867,34,2
+Bach#Prelude#bwv_870,56,3
+Bach#Prelude#bwv_876,152,2
+Bach#Prelude#bwv_880,128,3
+Bach#Prelude#bwv_884,128,1
+Bach#Prelude#bwv_887,110,1
+Bach#Prelude#bwv_888,122,1
+Bach#Prelude#bwv_892,104,2
+Schumann#Kreisleriana#1,90,2
+Bach#Fugue#bwv_866,92,1
+Bach#Prelude#bwv_866,88,1
+Chopin#Etudes_op_25#2,240,1
+Haydn#Keyboard_Sonatas#39-2,44,1
+Haydn#Keyboard_Sonatas#48-2,160,2
+Haydn#Keyboard_Sonatas#49-1,130,3
+Haydn#Keyboard_Sonatas#6-1,72,1
+Mozart#Piano_Sonatas#12-2,36,2
+Schumann#Kreisleriana#2,70,3
+Schumann#Kreisleriana#7,154,3

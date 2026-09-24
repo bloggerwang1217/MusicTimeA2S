@@ -1,0 +1,86 @@
+file,measure,referent,bpm,method,reference
+humdrum_chopin_first_editions_028_1-12-1a-C-001,1,4,84,recording_reference,"Agitato; Kissin, Chopin: 24 Preludes & Sonata No.2 Op.35 & Polonaise Op.53"
+humdrum_chopin_first_editions_031-1-Sm,1,4,184,score_marking,Presto; NIFC
+humdrum_chopin_first_editions_033-1-BH-001,0,4,120,fallback,Mesto; 性格標記無速度，fallback
+humdrum_chopin_first_editions_033-1-BH-003,0,4,120,fallback,Semplice; 性格標記無速度，fallback
+humdrum_chopin_first_editions_033-1-BH-004,0,4,120,fallback,Mesto; 性格標記無速度，fallback
+humdrum_chopin_first_editions_035-1b-BH-002,0,4,120,fallback,Scherzo無tempo標記; fallback
+humdrum_chopin_first_editions_035-1b-BH-003,1,4,52,score_marking,Lento; TR版
+humdrum_chopin_first_editions_041-1a-TR-003,0,4,116,score_marking,Allegretto; NIFC BH版
+humdrum_chopin_first_editions_042-1-P,1,4,160,score_marking,Vivace; ourchopin.com PDF確認，kern漏編
+humdrum_chopin_first_editions_044-1-ME,1,4,128,score_marking,Allegro moderato; 多來源確認，kern漏編
+humdrum_chopin_first_editions_045-2-Sm,1,4,120,fallback,Sostenuto; 性格標記無速度，fallback
+humdrum_chopin_first_editions_051-1-Sm,1,4.,85,recording_reference,"Tempo giusto; Yundi, spotify:track:29ZAGoKOX6a4oeB0iFl14z"
+humdrum_chopin_first_editions_051-1-Sm,49,4,85,recording_reference,Sostenuto; 同速度，此段一拍寫成四分音符
+humdrum_chopin_first_editions_058-1a-MEIj-003,1,4,50,score_marking,Largo; NIFC
+humdrum_chopin_first_editions_064-1a-BH-002,0,4,90,edition_marking,Tempo giusto; Pachmann版 dotted-half=60 → quarter=90
+humdrum_chopin_first_editions_072-1-MEIf-004-ecossaise,0,4,108,score_marking,繼承No.1 Vivace MM108; NIFC
+humdrum_chopin_first_editions_072-1-MEIf-005,0,4,108,score_marking,繼承No.1 Vivace MM108; NIFC
+humdrum_chopin_first_editions_072sep-1e-Sam-002-ecossaise,0,4,108,score_marking,繼承No.1 Vivace MM108; NIFC
+humdrum_chopin_first_editions_072sep-1e-Sam-003-ecossaise,0,4,108,score_marking,繼承No.1 Vivace MM108; NIFC
+humdrum_chopin_first_editions_PolGm-1-CY,1,4,93,recording_reference,"Chopin For The Afternoon, spotify:track:2DY4yvBsnkfb9IlU8P43ZR"
+humdrum_chopin_first_editions_WaltzEm-1b-SCH,0,4,160,song_lookup,Vivace; 多來源確認
+mozart_piano_sonatas_sonata06-3c,1,4,120,inherit_theme,繼承theme Andante *MM120
+mozart_piano_sonatas_sonata06-3i,1,4,120,inherit_theme,繼承theme Andante *MM120
+mozart_piano_sonatas_sonata11-1g,1,4,132,score_marking,Allegro; kern OMD
+musesyn_A_Town_With_An_Ocean_View_Piano,1,4,107,song_lookup,web search
+musesyn_Alan_Walker_-_Force_Clear_Liu_Piano_Cover,1,4,105,song_lookup,web search
+musesyn_Arrival_of_the_birds_-_Piano_Solo,1,4,87,song_lookup,6/4; dotted-half = beat
+musesyn_Because_Im_Stupid_Piano_cover__from-Boys_Over_Flowers,1,4,113,song_lookup,web search
+musesyn_Canon_in_D_Pachebel._Piano_Version_by_AC,1,4,100,range_estimate,no standard tempo; picked from range 80-108
+musesyn_Carol_of_the_Bells_easy_piano,1,4,160,range_estimate,no standard tempo; picked from range 150-170
+musesyn_Crab_Rave_Piano_Solo_-_Revised_Version,1,4,125,song_lookup,web search
+musesyn_Dance_of_the_Knights_Transcription_for_solo_piano,1,4,96,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Dark_Woods_Circus_-_Vocaloid_Piano_Solo,1,4,150,song_lookup,web search
+musesyn_Dont_Stop_Believing_Piano,1,4,119,song_lookup,web search
+musesyn_Dragonborn_-_Skyrim_Theme_Song_Piano_Solo,1,4,67,song_lookup,web search
+musesyn_Easy_Partition_Piano_Titanic_-_My_Heart_Will_Go_on_,0,4,98,song_lookup,web search
+musesyn_Feliz_Navidad_easy_piano,1,4,149,song_lookup,half-time feel ~75
+musesyn_Five_Nights_At_Freddys_Piano,1,4,103,song_lookup,web search
+musesyn_Flight_of_the_Bumblebee_Piano_-_Rimsky_Korsakov,1,4,144,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Fur_Elise_Easy_Piano,1,4,120,range_estimate,no standard tempo; picked from range 118-140
+musesyn_Guiles_Theme_for_Piano,1,4,126,song_lookup,web search
+musesyn_Gwyn_Lord_of_Cinder_Theme_Solo_Piano,1,4,122,range_estimate,no standard tempo; 3/4
+musesyn_Happiness_by_Rex_Orange_County_piano,1,4,106,song_lookup,web search
+musesyn_Heart_and_Soul_Piano,1,4,84,range_estimate,no standard tempo; picked from range 84-100
+musesyn_Hellevator_Piano_Ver._-_Stray_Kids,1,4,120,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_I_Giorni_piano,1,4,130,range_estimate,no standard tempo; picked from range 69-132
+musesyn_I_Got_Rhythm_-_piano_solo_-_arr._George_Gershwin,1,4,85,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_I_wouldnt_mind-he_is_we,1,4,108,song_lookup,web search
+musesyn_In_Christ_Alone_-_Piano,1,4,64,song_lookup,4/4 hymn
+musesyn_Lavender_Town_Beginner_Piano,1,4,126,song_lookup,web search
+musesyn_Lost_Woods_Piano,1,4,120,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Luma__Rosalinas_Story_Book__from_Super_Mario_Galaxy_Piano_solo,1,4,71,song_lookup,web search
+musesyn_Mirror_Night_Piano,1,4,168,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_New_Super_Mario_Bros_Wii_Castle_Theme_PianoBowser___,1,4,127,song_lookup,web search
+musesyn_Nyan_Cat_Piano_Cover,1,4,140,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Pachelbel_Canon_in_D_Fast_Easy_Version,1,4,120,range_estimate,no standard tempo; fast arrangement
+musesyn_Perfect_Ed_Sheeran_Easy_Piano,0,4,95,song_lookup,6/8
+musesyn_Piano_Requiem_in_D_Minor_Dies_Irae_By_W._A._Mozart_,1,4,152,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Pokemon_Gym_Theme_for_piano,1,4,140,song_lookup,web search
+musesyn_Pokemon_Theme_Song_piano,0,4,160,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Rasputin_-_Piano_Adaptation,1,4,128,song_lookup,web search
+musesyn_Rosemarys_Piano,1,4,70,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Sad_Song_We_The_Kings_easy_piano_C_Major,1,4,149,song_lookup,half-time feel ~75
+musesyn_Showtime_Haunting_Piano_Refrain,1,4,128,song_lookup,web search
+musesyn_Spectre,1,4,120,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Super_Mario_64_Staff_Roll_Ending_Credits_Piano,1,4,106,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Tag_youre_it_-_Melanie_Martinez_Easy_Piano_Version,1,4,115,song_lookup,web search
+musesyn_The_Glorious_State_Anthem_of_the_Soviet_Union,1,4,80,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_The_Secret_Garden_Piano_Theme,1,4,67,song_lookup,web search
+musesyn_This_is_Gospel_Piano_sheet,1,4,156,song_lookup,web search
+musesyn_Trees_by_Twenty_One_Pilots_piano_sheets,1,4,140,song_lookup,web search
+musesyn_Two_Steps_From_Hell_Star_Sky_-_Piano_Solo,1,4,130,song_lookup,web search
+musesyn_Undertale_OST_-_Megalovania__Piano_Remix,1,4,120,song_lookup,web search
+musesyn_Unravel_Tokyo_Ghoul_Piano_-_WIP,0,4,134,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+musesyn_Viva_La_Vida_-_Piano_Super_Easy,1,4,138,song_lookup,web search
+musesyn_When_The_Partys_Over_-_Billie_Eilish_-_Advanced_Piano_FREE,1,4,83,song_lookup,web search
+musesyn_With_or_Without_You_Piano_Solo,1,4,110,xml_sound_patch,MusicXML <sound tempo>; converter21 numberSounding bug
+humdrum_chopin_first_editions_020-1-BH,1,2.,120,score_marking,"Presto con fuoco; printed mark is a dotted half, which the kern importer does not recognise"
+humdrum_chopin_first_editions_020-1-BH,309,4,108,score_marking,"Molto piu lento at the Trio; same edition"
+humdrum_chopin_first_editions_073-1x-Sam-piano-primo,1,2,72,score_marking,"Allegro maestoso; printed M.M. half note = 72 in the source kern"
+humdrum_chopin_first_editions_073-1x-Sam-piano-primo,25,4,84,score_marking,"Printed M.M. quarter note = 84 at the 2/4 section in the source kern"
+humdrum_chopin_first_editions_066-1axx-COM,1,2,84,score_marking,"Allegro agitato; printed M.M. half note = 84 in the source kern"
+humdrum_chopin_first_editions_066-1axx-COM,43,4,88,score_marking,"Moderato cantabile; printed M.M. quarter note = 88 in the source kern"
+humdrum_chopin_first_editions_066-1axx-COM,51,2,84,score_marking,"A tempo returns to the opening half note = 84"
+humdrum_chopin_first_editions_066-1axx-COM,103,2,84,score_marking,"A tempo returns to the opening half note = 84"

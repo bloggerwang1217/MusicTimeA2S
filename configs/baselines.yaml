@@ -1,0 +1,61 @@
+# The compared systems: Piano-A2S, segmented by Beat This! or by the annotated
+# downbeats. One file; a run is selected with --run NAME (see `runs` below).
+
+# Machine-local locations. Fill in once.
+asap_root: /path/to/asap-dataset
+piano_a2s_repo: /path/to/piano-a2s
+piano_a2s_hparams: /path/to/piano-a2s/hparams/finetune.yaml
+piano_a2s_checkpoint: /path/to/piano-a2s/workspace/1234/finetune.epr/save
+piano_a2s_conda_env: a2s2024
+beatthis_fold_split: /path/to/beat_this/data/annotations/asap/8-folds.split
+beatthis_conda_env: beatthis
+
+# Shared by every run.
+musicdiff_root: external/efficient-musicdiff
+gpu_id: 0
+piano_a2s_device: cuda
+piano_a2s_min_duration: 4.0
+piano_a2s_max_duration: 12.0
+beatthis_device: cpu
+bootstrap_resamples: 10000
+bootstrap_seed: 0
+
+runs:
+  # Beat This! held-out fold checkpoints -> Piano-A2S on the ASAP-102 recordings.
+  beatthis_asap:
+    asap102_metadata: src/datasets/asap/metadata_R.csv
+    asap102_output_root: data/experiments/beatthis_pianoa2s_asap102_holdout
+    beatthis_checkpoint_policy: holdout_fold
+    beatthis_checkpoint: fold0
+    beatthis_absent_checkpoint: fold0
+
+  # Beat This! (fixed fold0) -> Piano-A2S on the rendered Syn test split. No Syn
+  # work is in the Beat This! ASAP folds, so one checkpoint serves every rendering.
+  beatthis_syn:
+    syn_manifest: data/experiments/syn/test_manifest.json
+    syn_root: data/experiments/syn
+    asap102_output_root: data/experiments/beatthis_pianoa2s_syn_test_ydp
+    beatthis_checkpoint_policy: fixed
+    beatthis_checkpoint: fold0
+
+  # Annotated downbeats -> Piano-A2S on the 74 ASAP recordings outside the
+  # front end's training data.
+  oracle_asap:
+    downbeat_source: oracle
+    asap102_metadata: src/datasets/asap/metadata_R.csv
+    recording_list: src/datasets/asap/asap102_hft_clean_74_recordings.txt
+    expected_recordings: 74
+    reference_mapping: data/experiments/asap102/whole_reference/mapping.jsonl
+    evaluation_manifest: data/experiments/asap102/test_manifest.json
+    asap102_output_root: data/experiments/oracle_downbeats_pianoa2s_asap74
+
+  # Annotated downbeats -> Piano-A2S on the rendered Syn test split.
+  oracle_syn:
+    downbeat_source: oracle
+    syn_manifest: data/experiments/syn/test_manifest.json
+    syn_root: data/experiments/syn
+    recording_list: data/experiments/syn/native_reference_syn_test_ydp/recordings.txt
+    expected_recordings: 180
+    reference_mapping: data/experiments/syn/native_reference_syn_test_ydp/mapping.jsonl
+    evaluation_manifest: data/experiments/syn/native_reference_syn_test_ydp/manifest.json
+    asap102_output_root: data/experiments/oracle_downbeats_pianoa2s_syn_test_ydp

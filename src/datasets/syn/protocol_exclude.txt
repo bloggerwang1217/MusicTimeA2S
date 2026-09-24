@@ -1,0 +1,132 @@
+! Works barred from the Syn dataset. Most are barred because the same music
+! is scored in the ASAP test sets (rendering it would put test scores into
+! training), or because the same movement already enters training as ASAP
+! recordings (a movement is trained from one source only); one is barred for
+! its notation. The pipeline drops these stems at render time and again when
+! manifests are built.
+!
+! Names are kern stems exactly as they appear in kern/ and kern_gt/ — matched
+! literally, never fuzzily, so a near-miss drops nothing by accident.
+!
+! Seventeen of these were also removed outright from valid_split.txt; the rest
+! fell in the default train bucket, which no list enumerates.
+name
+beethoven_piano_sonatas_sonata03-1
+beethoven_piano_sonatas_sonata03-2
+beethoven_piano_sonatas_sonata05-1
+beethoven_piano_sonatas_sonata08-1
+beethoven_piano_sonatas_sonata08-3
+beethoven_piano_sonatas_sonata10-1
+beethoven_piano_sonatas_sonata12-1
+beethoven_piano_sonatas_sonata16-1
+beethoven_piano_sonatas_sonata16-2
+beethoven_piano_sonatas_sonata18-1
+beethoven_piano_sonatas_sonata18-4
+beethoven_piano_sonatas_sonata21-1
+humdrum_chopin_first_editions_010_7-12-1-KI-012
+humdrum_chopin_first_editions_035-1b-BH-004
+humdrum_chopin_first_editions_053-1-Sm
+! Movements scored in the ASAP-derived test protocols.
+beethoven_piano_sonatas_sonata22-1
+beethoven_piano_sonatas_sonata27-1
+beethoven_piano_sonatas_sonata28-1
+humdrum_chopin_first_editions_010_1-6-1b-KI-002
+humdrum_chopin_first_editions_010_1-6-1b-KI-004
+humdrum_chopin_first_editions_038-1-TR
+humdrum_chopin_first_editions_047-1-BH
+mozart_piano_sonatas_sonata12-1
+mozart_piano_sonatas_sonata12-3
+! Movements whose ASAP recordings sit in the ASAP train or validation split;
+! the movement is sourced from ASAP alone, so scoring it here would duplicate
+! training material or leak into our own validation. sonata21-4 is the Rondo's
+! closing Prestissimo split into its own file — the same music sits inside the
+! ASAP Rondo score.
+beethoven_piano_sonatas_sonata07-1
+beethoven_piano_sonatas_sonata07-4
+beethoven_piano_sonatas_sonata17-1
+beethoven_piano_sonatas_sonata17-2
+beethoven_piano_sonatas_sonata17-3
+beethoven_piano_sonatas_sonata21-2
+beethoven_piano_sonatas_sonata21-3
+beethoven_piano_sonatas_sonata21-4
+beethoven_piano_sonatas_sonata22-2
+beethoven_piano_sonatas_sonata23-1
+beethoven_piano_sonatas_sonata24-1
+beethoven_piano_sonatas_sonata24-2
+beethoven_piano_sonatas_sonata26-2
+beethoven_piano_sonatas_sonata26-3
+beethoven_piano_sonatas_sonata27-2
+beethoven_piano_sonatas_sonata29-4
+beethoven_piano_sonatas_sonata30-1
+beethoven_piano_sonatas_sonata31-1
+beethoven_piano_sonatas_sonata31-2
+beethoven_piano_sonatas_sonata31-3
+beethoven_piano_sonatas_sonata32-1
+haydn_piano_sonatas_sonata52-3
+humdrum_chopin_first_editions_010_1-6-1b-KI-001
+humdrum_chopin_first_editions_010_7-12-1-KI-008
+humdrum_chopin_first_editions_010_7-12-1-KI-010
+humdrum_chopin_first_editions_020-1-BH
+humdrum_chopin_first_editions_023-1-BH
+humdrum_chopin_first_editions_025_1-6-1d-BH-001
+humdrum_chopin_first_editions_025_1-6-1d-BH-005
+humdrum_chopin_first_editions_025_7-12-1a-BH-010
+humdrum_chopin_first_editions_025_7-12-1a-BH-011
+humdrum_chopin_first_editions_025_7-12-1a-BH-012
+humdrum_chopin_first_editions_031-1-Sm
+humdrum_chopin_first_editions_039-1-TR
+humdrum_chopin_first_editions_052-1-BH
+humdrum_chopin_first_editions_057-1a-MEIj
+humdrum_chopin_first_editions_058-1a-MEIj-004
+humdrum_chopin_first_editions_060-1-BH
+
+! Notation the token representation has no meter for: this arrangement writes
+! 7/4, and 7 is not a numerator the metric tree can build.
+musesyn_Wonder_Woman_Theme_-_Piano_Solo
+
+! Notation the metric lattice has no cycle for: these two are written in 5/4
+! throughout, and 5 does not divide the 12-slot bar grid.
+humdrum_chopin_first_editions_004-1-HAc-003
+musesyn_Halloween_Main_Theme__Piano_Tutorial
+
+! Test-split movements the compared external systems have trained or
+! validated on (movement level: each movement or piece is its own
+! work; a theme with variations is one movement). All of these sit in the
+! test split, so barring them shrinks only the evaluation set.
+!
+! ASAP recordings of the movement train an external audio-to-score system
+! (metadata_R + metadata_S of Liu et al., source ASAP) and, where ASAP audio
+! exists, Beat This!; sonata09-3 and
+! sonata11-1 are also in Piano-A2S's ASAP fine-tuning list. sonata11-1 and
+! sonata11-3 are additionally in MAESTRO validation as the complete Op. 22.
+beethoven_piano_sonatas_sonata02-1
+beethoven_piano_sonatas_sonata04-1
+beethoven_piano_sonatas_sonata07-2
+beethoven_piano_sonatas_sonata07-3
+beethoven_piano_sonatas_sonata09-1
+beethoven_piano_sonatas_sonata09-3
+beethoven_piano_sonatas_sonata11-1
+beethoven_piano_sonatas_sonata11-3
+beethoven_piano_sonatas_sonata26-1
+beethoven_piano_sonatas_sonata28-2
+beethoven_piano_sonatas_sonata29-2
+humdrum_chopin_first_editions_010_1-6-1b-KI-005
+mozart_piano_sonatas_sonata11-3
+! MAESTRO v3 train or validation recordings of the movement (the frozen hFT
+! front end is trained on MAESTRO train). A MAESTRO title that
+! names no movement is read as the complete work: K. 280, K. 281, K. 576
+! (kern !!!SCT, NMA No. 18) and the complete Op. 22 in validation; Mazurka
+! Op. 7 No. 3 is in validation.
+beethoven_piano_sonatas_sonata11-4
+mozart_piano_sonatas_sonata02-3
+mozart_piano_sonatas_sonata03-1
+mozart_piano_sonatas_sonata17-2
+humdrum_chopin_first_editions_007-1-W-003
+! Same movement or same piece already in our own Syn train: sonata06-3i is
+! variation viii of K. 284's third movement, whose theme and other eleven
+! variations (3a-3h, 3j-3m) are trained; the Dragonborn arrangement is the
+! Skyrim theme (Jeremy Soule) that trains as Skyrim_Theme_for_Piano.
+mozart_piano_sonatas_sonata06-3i
+musesyn_Dragonborn_-_Skyrim_Theme_Song_Piano_Solo
+! The original recording is in Beat This!'s Beatles training data.
+musesyn_The_Beatles_-_While_My_Guitar_Gently_Weeps_Piano_Accompaniment

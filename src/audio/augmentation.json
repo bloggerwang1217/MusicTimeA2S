@@ -1,0 +1,54 @@
+{
+  "tempo": {
+    "enabled": true,
+    "sampling": "stratified_log2",
+    "max_log2_deviation": 0.5,
+    "num_strata": 4
+  },
+  "soundfonts": {
+    "train": [
+      "TimGM6mb.sf2",
+      "FluidR3_GM.sf2",
+      "UprightPianoKW-20220221.sf2",
+      "SalamanderGrandPiano-V3+20200602.sf2"
+    ],
+    "valid": [
+      "SalamanderGrandPiano-V3+20200602.sf2"
+    ],
+    "test": [
+      "YDP-GrandPiano-20160804.sf2"
+    ]
+  },
+  "num_versions": {
+    "train": 4,
+    "valid": 1,
+    "test": 4
+  },
+  "epr": {
+    "default_style_by_prefix": {
+      "musesyn_": null,
+      "joplin_": null,
+      "scarlatti_keyboard_sonatas_": "Haydn",
+      "beethoven_piano_sonatas_": "Beethoven",
+      "mozart_piano_sonatas_": "Mozart",
+      "haydn_piano_sonatas_": "Haydn",
+      "humdrum_chopin_first_editions_": "Chopin"
+    },
+    "never_epr_prefixes": [],
+    "style_pool": [
+      "Beethoven",
+      "Chopin",
+      "Haydn",
+      "Liszt",
+      "Mozart",
+      "Ravel",
+      "Schubert"
+    ],
+    "test_styles": [
+      null,
+      "Bach",
+      "Mozart",
+      "Chopin"
+    ]
+  }
+}

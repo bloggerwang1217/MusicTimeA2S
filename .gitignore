@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+
+# Runtime state and outputs (never committed)
+checkpoints/
+data/
+logs/
+wandb/
+slurm-*.out
+figures/*.png
+figures/*.pdf
+figures/*.csv
+
+# Machine-local copies of the baseline config
+configs/baselines.local.yaml

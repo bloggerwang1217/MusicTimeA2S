@@ -1,0 +1,99 @@
+# Piano audio-to-score, without Fourier PE — two-GPU training
+# =====================================
+#
+# batch_size is per rank: 4 × 2 GPUs preserves the single-GPU effective batch
+# of 8.
+#
+# Phase auxiliary arm: identical to the phase-only recipe except that the
+# decoder never receives the phase coordinate (no coordinate_delivery).
+# The phase branch and its per-frame blurred circular CE are trained exactly
+# as in the phase-only run; only the delivery to the score path is absent.
+# The phase branch's LR anneals from step 10k to 20k and early stopping is 5,
+# both as in the headline run, so the only difference is the delivery.
+
+seed:
+  training: 42
+  # Seeds 91 and 1217 were trained from this same file with only this value
+  # changed; their checkpoints are checkpoints/<arm>_seed<seed>.pt.
+
+# =============================================================================
+# Model
+# =============================================================================
+model:
+  name: "piano-a2s-without-fourierpe"
+
+  hft_state_dict: "checkpoints/hft/hft_maestro_v3_statedict.pt"
+  hft_parameter_json: "checkpoints/hft/parameter.json"
+
+  n_queries: 32
+  d_model: 256
+  n_heads: 4
+
+  phase_model: true
+
+  n_global_layers: 2
+  conformer_kernel: 65
+
+  ftheta_layers: 6
+  ftheta_d_state: 128
+  ftheta_d_conv: 4
+  ftheta_dilations: [1, 1, 2, 4, 8, 16, 32]
+  ftheta_dilated_dropout: 0.1
+  downbeat_phase_classes: 360
+
+  ff_dim: 1024
+  n_layers: 4
+  dropout: 0.1
+  max_seq_len: 2048
+  label_smoothing: 0.0
+
+# =============================================================================
+# Data
+# =============================================================================
+data:
+  chunking:
+    chunk_frames: 1280
+    overlap_frames: 640
+  prefix:
+    enabled: true
+    # Run-in of one bar for the phase branch, capped at three hFT windows
+    # (6.1 s): the batch pays for its largest run-in rounded up to whole
+    # windows, so the cap bounds that cost.
+    max_frames: 384
+    # Decoder memory opens at most half a bar before the chunk (uniform draw),
+    # so the first downbeat in the memory is the token stream's first bar.
+
+# =============================================================================
+# Joint teaching objective
+# =============================================================================
+loss:
+  lambda_score: 1.0
+  # Per-frame blurred circular CE on the phase head.
+  lambda_downbeat_phase: 0.1
+
+# =============================================================================
+# Training
+# =============================================================================
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 1
+  gradient_clip: 2.0
+
+  learning_rate: 1.0e-4
+  weight_decay: 0.01
+  max_epochs: 50
+  warmup_steps: 1000
+  lr_min_ratio: 0.1
+  phase_lr_decay_start_step: 10000
+  phase_lr_decay_end_step: 20000
+  phase_lr_min: 1.0e-5
+
+  save_every_n_epochs: 5
+  early_stopping_patience: 5
+
+# =============================================================================
+# Paths
+# =============================================================================
+paths:
+  manifest_dir: "data/experiments/syn"
+  checkpoint_dir: "checkpoints/without_fourierpe"
