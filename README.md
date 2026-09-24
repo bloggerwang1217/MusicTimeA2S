@@ -31,9 +31,22 @@ The paper's checkpoints are released separately and go under `checkpoints/`:
 | `checkpoints/without_fourierpe_seed42.pt` | Phase supervision only, no Fourier PE | 42 |
 | `checkpoints/without_durationpe_seed42.pt` | Audio-side Fourier PE only | 42 |
 | `checkpoints/without_audiope_seed42.pt` | Score-side Fourier PE only | 42 |
-| `checkpoints/hft/hft_maestro_v3_statedict.pt`, `parameter.json` | Frozen hFT-Transformer front end (MAESTRO-V3 release) | – |
 
 `checkpoints/manifest.json` lists the SHA-256 of every file.
+
+The frozen hFT-Transformer front end is not redistributed here. Its MAESTRO-V3
+weights can be found in the ISMIR 2023 release of
+[sony/hFT-Transformer](https://github.com/sony/hFT-Transformer/releases/tag/ismir2023);
+download `checkpoint.zip` and convert it into the state dict this repo loads:
+
+```bash
+wget https://github.com/sony/hFT-Transformer/releases/download/ismir2023/checkpoint.zip
+poetry run python scripts/convert_hft_checkpoint.py checkpoint.zip
+```
+
+This writes `checkpoints/hft/hft_maestro_v3_statedict.pt` and
+`checkpoints/hft/parameter.json`, the paths the configs point at, and checks
+them against `manifest.json`.
 
 ### Machine-local paths
 
