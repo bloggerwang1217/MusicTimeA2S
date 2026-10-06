@@ -22,7 +22,13 @@ exists; the evaluation scripts call it from there.
 
 ### Checkpoints
 
-The paper's checkpoints are released separately and go under `checkpoints/`:
+The paper's checkpoints are attached to the
+[v0.1.0 release](https://github.com/bloggerwang1217/MusicTimeA2S/releases/tag/v0.1.0)
+and go under `checkpoints/`:
+
+```bash
+gh release download v0.1.0 -R bloggerwang1217/MusicTimeA2S -D checkpoints
+```
 
 | File | Model | Training seed |
 |---|---|---|
